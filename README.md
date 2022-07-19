@@ -10,3 +10,4 @@ The following is the QR code of the Douyin account;
 
 ![dy_account](./docs/dy_account.jpg)
 
+
