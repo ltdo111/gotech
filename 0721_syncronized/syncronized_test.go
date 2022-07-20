@@ -15,3 +15,7 @@ func Test_SafeAddWithAtomic(t *testing.T) {
 func Test_SafeAddAndMinusWithSyncMutex(t *testing.T) {
 	SafeAddAndMinusWithSyncMutex()
 }
+
+func Test_ExecutedCodeOnceBySyncOnce(t *testing.T) {
+	ExecutedCodeOnceBySyncOnce()
+}

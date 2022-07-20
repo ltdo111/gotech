@@ -7,13 +7,14 @@
 //         - sync.RMutex - 类 Java ReentrantReadWriteLock
 //      3. 多 routine 同步 - sync.WaitGroup
 //      4. 多 routine 情况下 -  sync.Once 只执行一次
-//      5. sync.Cond - 类Java Condition, wait/notify 经典范式=加锁+循环+等待
+//      5. sync.Cond - 多 groutine 之间的通信, 类Java Condition, wait/notify 经典范式=加锁+循环+等待
 //      6. sync.Map - 线程安全的 Map 容器;
 //      录制计划 - 分 6 小节
 
 package _721_syncronized
 
 import (
+	"fmt"
 	"sync"
 	"sync/atomic"
 )
@@ -52,7 +53,8 @@ func SafeAddWithAtomic() {
 	println(n)
 }
 
-// SafeAddAndMinusWithSyncMutex 多 go routines 同时 加、减操作通过使用 SyncMutex 实现 多routines 安全.
+// SafeAddAndMinusWithSyncMutex 多 go routines 同时 加、减操作通过使用 Sync.Mutex 实现 多routines 安全.
+// the second tech
 func SafeAddAndMinusWithSyncMutex() {
 	var num int = 0
 
@@ -61,7 +63,7 @@ func SafeAddAndMinusWithSyncMutex() {
 	wg.Add(2)
 
 	// Add
-	func(*sync.Mutex, *sync.WaitGroup) {
+	go func(*sync.Mutex, *sync.WaitGroup) {
 		defer wg.Done()
 		for i := 0; i < 100000; i = i + 1 {
 			mutex.Lock()
@@ -83,4 +85,25 @@ func SafeAddAndMinusWithSyncMutex() {
 
 	wg.Wait()
 	print(num)
+}
+
+// ExecutedCodeOnceBySyncOnce - 演示只执行一次动作, 比如项目有个清理动作，防止重复操作.
+// the third tech
+func ExecutedCodeOnceBySyncOnce() {
+	once := new(sync.Once)
+	var wg = new(sync.WaitGroup)
+	wg.Add(10)
+
+	for i := 0; i < 10; i = i + 1 {
+		tmp := i
+		go func() {
+			defer wg.Done()
+			fmt.Println(tmp)
+			once.Do(func() {
+				fmt.Println("RunOnce")
+			})
+		}()
+	}
+
+	wg.Wait()
 }
