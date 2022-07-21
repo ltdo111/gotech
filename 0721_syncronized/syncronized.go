@@ -110,29 +110,47 @@ func ExecutedCodeOnceBySyncOnce() {
 
 // MultiRoutinesCommunicateBySyncCond 多协程通过 syncCond 来进行通信交流;
 func MultiRoutinesCommunicateBySyncCond() {
+	stopCh := make(chan struct{})
+
 	lc := new(sync.Mutex)
 	cond := sync.NewCond(lc)
+
 	num := 0
 
 	// consumer
 	go func() {
-		lc.Lock()
-		for num == 0 {
-			cond.Wait()
+		for {
+			cond.L.Lock()
+			for num == 0 {
+				cond.Wait()
+			}
+			num -= 1
+			fmt.Println("consumer-> ", num)
+			cond.Signal()
+			cond.L.Unlock()
 		}
-		num -= 1
-		cond.Signal()
-		lc.Unlock()
 	}()
 
 	// producer
 	go func() {
-		lc.Lock()
-		for num == 3 {
-			cond.Wait()
+		for {
+			cond.L.Lock()
+			for num == 3 {
+				cond.Wait()
+			}
+			num += 1
+			fmt.Println("producer -> ", num)
+			cond.Signal()
+			cond.L.Unlock()
 		}
-		num += 1
-		cond.Signal()
-		lc.Unlock()
+
 	}()
+
+	for {
+		select {
+		case <-stopCh:
+			return
+		default:
+		}
+	}
 }

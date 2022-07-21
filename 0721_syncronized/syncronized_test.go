@@ -19,3 +19,7 @@ func Test_SafeAddAndMinusWithSyncMutex(t *testing.T) {
 func Test_ExecutedCodeOnceBySyncOnce(t *testing.T) {
 	ExecutedCodeOnceBySyncOnce()
 }
+
+func TestMultiRoutinesCommunicateBySyncCond(t *testing.T) {
+	MultiRoutinesCommunicateBySyncCond()
+}
