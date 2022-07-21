@@ -107,3 +107,32 @@ func ExecutedCodeOnceBySyncOnce() {
 
 	wg.Wait()
 }
+
+// MultiRoutinesCommunicateBySyncCond 多协程通过 syncCond 来进行通信交流;
+func MultiRoutinesCommunicateBySyncCond() {
+	lc := new(sync.Mutex)
+	cond := sync.NewCond(lc)
+	num := 0
+
+	// consumer
+	go func() {
+		lc.Lock()
+		for num == 0 {
+			cond.Wait()
+		}
+		num -= 1
+		cond.Signal()
+		lc.Unlock()
+	}()
+
+	// producer
+	go func() {
+		lc.Lock()
+		for num == 3 {
+			cond.Wait()
+		}
+		num += 1
+		cond.Signal()
+		lc.Unlock()
+	}()
+}
