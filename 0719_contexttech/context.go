@@ -86,7 +86,9 @@ func WithCancelContext() {
 	go func(context.Context, *sync.WaitGroup) {
 		for {
 			select {
-			case <-ctx.Done():
+			case d, c := <-ctx.Done():
+				fmt.Println("bofeng", d, c)
+
 				wg.Done()
 				fmt.Println("monitor1 listen ctx done")
 				return
