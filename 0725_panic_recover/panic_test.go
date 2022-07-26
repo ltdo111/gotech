@@ -13,7 +13,6 @@ func Test_runRoutines(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		{name: "test_1"},
-		{name: "test_2"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
