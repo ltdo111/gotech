@@ -5,7 +5,9 @@
 
 package _725_panic_recover
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_runRoutines(t *testing.T) {
 	tests := []struct {

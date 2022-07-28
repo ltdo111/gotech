@@ -24,23 +24,23 @@ import "fmt"
 
 // PanicSimulate 模拟 panic
 func PanicSimulate(key int) {
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Printf("%s\n", err)
-		}
-	}()
+	//defer func() {
+	//	if err := recover(); err != nil {
+	//		fmt.Printf("%s\n", err)
+	//	}
+	//}()
 
 	if key == 2 {
 		panic(fmt.Sprintf("panic from key == %v", key))
 	}
 
 	go func() {
-		defer func() {
-			if err := recover(); err != nil {
-				fmt.Printf("%s\n", err)
-			}
-		}()
-		panic(fmt.Sprintf("panic  again"))
+		//defer func() {
+		//	if err := recover(); err != nil {
+		//		fmt.Printf("%s\n", err)
+		//	}
+		//}()
+		//panic(fmt.Sprintf("panic  again"))
 	}()
 
 	fmt.Println("run ok, key == ", key)
