@@ -10,6 +10,6 @@ The teaching video of the source code has been shared on Douyin.
 If you need it or interested it , please pay attention to the Douyin account: bofeng22153,
 The following is the QR code of the Douyin account;
 
-![dy_account](./docs/dy_account.jpg)
+![B站_account](./docs/Bzhan_code.jpg)
 
 
