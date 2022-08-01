@@ -1,0 +1,92 @@
+{
+  "data": [
+    {
+      "sence": "ALIPAY_HOME_ROTATION",
+      "curMetaData": {
+        "replicates": 133,
+        "cpuUtil": 0.3
+      },
+      "baseLine": {
+        "coreUtilThreshold": 0.65,
+        "maxReplicates": 150,
+        "minReplicates": 80,
+        "minSupportQps": 100,
+        "transfer": 10,
+        "interval": 0.5,
+        "x_origin": 10
+      },
+      "predictSeries": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "tab3": {
+        "sence": "tab3",
+        "curMetaData": {
+          "replicates": 133,
+          "cpuUtil": 0.3
+        },
+        "baseLine": {
+          "coreUtilThreshold": 0.65,
+          "maxReplicates": 150,
+          "minReplicates": 80,
+          "minSupportQps": 100,
+          "transfer": 10,
+          "interval": 0.5,
+          "x_origin": 10
+        },
+        "predictSeries": [
+          10,
+          20,
+          30,
+          40
+        ]
+      }
+    },
+    {
+      "sence": "ALIPAY_HOME_ROTATION",
+      "curMetaData": {
+        "replicates": 133,
+        "cpuUtil": 0.3
+      },
+      "baseLine": {
+        "coreUtilThreshold": 0.65,
+        "maxReplicates": 150,
+        "minReplicates": 80,
+        "minSupportQps": 100,
+        "transfer": 10,
+        "interval": 0.5,
+        "x_origin": 10
+      },
+      "predictSeries": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "tab3": {
+        "sence": "tab3",
+        "curMetaData": {
+          "replicates": 133,
+          "cpuUtil": 0.3
+        },
+        "baseLine": {
+          "coreUtilThreshold": 0.65,
+          "maxReplicates": 150,
+          "minReplicates": 80,
+          "minSupportQps": 100,
+          "transfer": 10,
+          "interval": 0.5,
+          "x_origin": 10
+        },
+        "predictSeries": [
+          10,
+          20,
+          30,
+          40
+        ]
+      }
+    }
+  ]
+}
