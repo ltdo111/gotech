@@ -3,7 +3,7 @@
 // @version : 0803_Broadcaster, v 0.1 2022/08/01 7:40 PM bofeng.lt Exp $$
 // @Description:
 
-package broadcaster
+package _803_broadcaster
 
 // Master 主节点 leadership.
 type Master struct {
