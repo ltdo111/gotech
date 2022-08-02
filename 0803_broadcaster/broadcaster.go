@@ -6,20 +6,24 @@
 package _803_broadcaster
 
 // Master 主节点 leadership.
+// env
+// hook slaver-master -> 新 slaver master
+// switch true.
 type Master struct {
-	Host      string
+	host      string
 	otherMeta any
+	slaver    []Slaver
 }
 
-// Slaver 定义Slaver
+// Slaver 定义Slaver.
 type Slaver struct {
-	Host      string
+	host      string
 	otherMeta any
 }
 
 // 写同步逻辑。 就是一个rpc请求， slaver 开接口，接收来自master 的信息,并存储;
 func (s Slaver) sync(info any) {
-
+	// rpc_caller
 }
 
 // AllSlavers 返回所有slaver.
