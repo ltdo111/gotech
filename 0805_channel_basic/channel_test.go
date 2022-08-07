@@ -3,7 +3,7 @@
 // @version : channel_test.go, v 0.1 2022/08/02 7:24 PM bofeng.lt Exp $$
 // @Description:
 
-package _805_channel_basic
+package main
 
 import "testing"
 
